@@ -1,0 +1,22 @@
+{
+  "name": "userregistration",
+  "version": "1.0.0",
+  "description": "user Registration API using cypress, API verification using token",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohandeshmukh09/userRegistration.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohandeshmukh09/userRegistration/issues"
+  },
+  "homepage": "https://github.com/rohandeshmukh09/userRegistration#readme",
+  "devDependencies": {
+    "cypress": "^12.3.0"
+  }
+}
