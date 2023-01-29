@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/rohandeshmukh09/userRegistration#readme",
   "devDependencies": {
-    "cypress": "^12.3.0"
+    "cypress": "^12.4.1"
   }
 }
