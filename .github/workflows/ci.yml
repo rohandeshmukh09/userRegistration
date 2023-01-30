@@ -1,0 +1,22 @@
+name: Cypress API Tests
+on: [push]
+jobs:
+  cypress-run:
+    name: Build Cypress Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install NPM Dependencies
+        run: npm install
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
+      - name: Mochawesome-Merge Report
+        run: npm run report:merge
+      - name: Mochawesome-Generate Report
+        run: npm run report:mocha
+      - name: Reports deploy
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+            BRANCH: gh-pages
+            FOLDER: mochawesome-report
