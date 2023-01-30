@@ -14,7 +14,7 @@ describe('User Registration', () => {
             url: '/authaccount/login',
             //form: true,
             body: {
-                "email": "username",
+                "email": username,
                 "password": password
             }
 

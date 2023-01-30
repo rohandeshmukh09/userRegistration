@@ -10,6 +10,15 @@ module.exports = defineConfig({
     env: {
       "username": "DevOps55@gmail.com",
       "password": 123456
+    },
+    "reporter": "mochawesome",
+    "reporterOptions": {
+      "reporterDir": "mochawesome-report",
+      "quiet": true,
+      "overwrite": false,
+      "html": false,
+      "json": true
     }
-  },
+
+  }
 });
