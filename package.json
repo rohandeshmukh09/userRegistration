@@ -29,5 +29,8 @@
     "mochawesome-merge": "^4.2.2",
     "mochawesome-report-generator": "^6.2.0",
     "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
   }
 }

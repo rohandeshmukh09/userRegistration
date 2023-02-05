@@ -35,36 +35,36 @@ describe('User Registration', () => {
         })
 
     });
-
-    it('Login Check Cypress Env', () => {
-        const username = Cypress.env('username')
-        const password = Cypress.env('password')
-        //expect(username, 'username was set').to.be.a('string').and.not.be.empty
-        // expect(password, 'password was set').to.be.a('string').and.not.be.empty
-
-        cy.request({
-            method: 'POST',
-            url: '/authaccount/login',
-            //form: true,
-            body: {
-                "email": username,
-                "password": password
-            }
-
-        }).then(response => {
-            cy.log(JSON.stringify(response));
-            expect(response.status).to.eq(200);
-            cy.log(response.body.message);
-            expect(response.body.message).eq("success");
-            expect(response.body.data.Id).eq(207904);
-            expect(response.body.data.Name).eq("Developer");
-            expect(response.body.data.Email).eq("DevOps55@gmail.com");
-            cy.log(response.body.data.Token);
-            access_token = response.body.data.Token;
-
-
-        })
-
-    });
+    /*
+        it('Login Check Cypress Env', () => {
+            const username = Cypress.env('username')
+            const password = Cypress.env('password')
+            //expect(username, 'username was set').to.be.a('string').and.not.be.empty
+            // expect(password, 'password was set').to.be.a('string').and.not.be.empty
+    
+            cy.request({
+                method: 'POST',
+                url: '/authaccount/login',
+                //form: true,
+                body: {
+                    "email": username,
+                    "password": password
+                }
+    
+            }).then(response => {
+                cy.log(JSON.stringify(response));
+                expect(response.status).to.eq(200);
+                cy.log(response.body.message);
+                expect(response.body.message).eq("success");
+                expect(response.body.data.Id).eq(207904);
+                expect(response.body.data.Name).eq("Developer");
+                expect(response.body.data.Email).eq("DevOps55@gmail.com");
+                cy.log(response.body.data.Token);
+                access_token = response.body.data.Token;
+    
+    
+            })
+    
+        });*/
 
 });

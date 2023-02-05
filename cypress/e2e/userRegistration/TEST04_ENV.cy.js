@@ -25,8 +25,8 @@ describe('User Registration', () => {
             expect(response.body.data.Email).eq("DevOps55@gmail.com");
             cy.log(response.body.data.Token);
             access_token = response.body.data.Token;
-            cy.writeFile('.env', response.body.data.Token)
-            cy.readFile('.env').then(text => {
+            cy.writeFile('.env.test', response.body.data.Token)
+            cy.readFile('.env.test').then(text => {
                 const access_token = text;
                 cy.log(access_token);
                 cy.request({
@@ -40,8 +40,8 @@ describe('User Registration', () => {
 
             }).then(response => {
                 expect(response.status).eql(200);
-            
-                
+
+
 
             })
 

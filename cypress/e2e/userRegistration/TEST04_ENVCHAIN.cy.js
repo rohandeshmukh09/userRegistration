@@ -7,16 +7,13 @@ describe('User Registration', () => {
     let id3 = "";
     let data = "";
     it('Generate token', () => {
-        const username = Cypress.env('username')
-        const password = Cypress.env('password')
+        //const username = Cypress.env('email')
+        //const password = Cypress.env('password')
         cy.request({
             method: 'POST',
             url: '/authaccount/login',
             //form: true,
-            body: {
-                "email": username,
-                "password": password
-            }
+            body: Cypress.env()
 
         }).then(response => {
             cy.log(JSON.stringify(response));
@@ -28,7 +25,7 @@ describe('User Registration', () => {
             expect(response.body.data.Email).eq("DevOps55@gmail.com");
             cy.log(response.body.data.Token);
             access_token = response.body.data.Token;
-            cy.writeFile('.env', response.body.data.Token)
+            cy.writeFile('.env.test', response.body.data.Token)
 
 
         })
@@ -36,7 +33,7 @@ describe('User Registration', () => {
     });
     it('GET ALL USER Page1', () => {
 
-        cy.readFile('.env').then(text => {
+        cy.readFile('.env.test').then(text => {
             const access_token = text;
             cy.log(access_token);
             cy.request({
@@ -76,7 +73,7 @@ describe('User Registration', () => {
     })
     it('GET ALL USER Page2', () => {
 
-        cy.readFile('.env').then(text => {
+        cy.readFile('.env.test').then(text => {
             const access_token = text;
             cy.log(access_token);
             cy.request({
@@ -117,7 +114,7 @@ describe('User Registration', () => {
 
     it('GET ALL USER Each Page1', () => {
 
-        cy.readFile('.env').then(text => {
+        cy.readFile('.env.test').then(text => {
             const access_token = text;
             cy.log(access_token);
             cy.request({

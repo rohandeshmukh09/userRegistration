@@ -4,7 +4,7 @@ describe('User Registration LOGIN', () => {
 
     it('GET User Data By ID PAGE1', () => {
         const data = require('../../fixtures/page1.json')
-        cy.readFile('.env').then(text => {
+        cy.readFile('.env.test').then(text => {
             const access_token = text;
             cy.log(access_token);
             cy.wrap(data.data).each((data, k) => {
@@ -44,7 +44,7 @@ describe('User Registration LOGIN', () => {
         Array.from(data.data).forEach((dataobj) => {
 
             it(dataobj.name, () => {
-                cy.readFile('.env').then(text => {
+                cy.readFile('.env.test').then(text => {
                     const access_token = text;
                     cy.log(access_token);
                     cy.request({
@@ -71,7 +71,7 @@ describe('User Registration LOGIN', () => {
     });
     it('GET User Data By ID PAGE 2', () => {
         const data = require('../../fixtures/page2.json')
-        cy.readFile('.env').then(text => {
+        cy.readFile('.env.test').then(text => {
             const access_token = text;
             cy.log(access_token);
             cy.wrap(data.data).each((data, k) => {
@@ -111,7 +111,7 @@ describe('User Registration LOGIN', () => {
         Array.from(data.data).forEach((dataobj) => {
 
             it(dataobj.name, () => {
-                cy.readFile('.env').then(text => {
+                cy.readFile('.env.test').then(text => {
                     const access_token = text;
                     cy.log(access_token);
                     cy.request({
