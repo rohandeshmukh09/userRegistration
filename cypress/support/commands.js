@@ -23,3 +23,33 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+export const login = () => {
+    let access_token = "";
+    /*const username = Cypress.env('username')
+    //const password = Cypress.env('password')
+  
+    // it is ok for the username to be visible in the Command Log
+    expect(username, 'username was set').to.be.a('string').and.not.be.empty
+    // but the password value should not be shown
+    if (typeof password !== 'string' || !password) {
+      throw new Error('Missing password value, set using CYPRESS_password=...')
+    }*/
+
+    cy.request({
+        method: 'POST',
+        url: '/authaccount/login',
+        //form: true,
+        body: Cypress.env()
+
+    }).then(response => {
+        cy.log(JSON.stringify(response));
+        expect(response.status).to.eq(200);
+        expect(response.body.message).eq("success");
+        expect(response.body.data.Id).eq(207904);
+        expect(response.body.data.Name).eq("Developer");
+        expect(response.body.data.Email).eq("DevOps55@gmail.com");
+        cy.log(response.body.data.Token);
+        access_token = response.body.data.Token;
+    })
+    //cy.getCookie('connect.sid').should('exist')
+}
