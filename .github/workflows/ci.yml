@@ -10,13 +10,13 @@ jobs:
       - name: Install NPM Dependencies
         run: npm install
       - name: Cypress run
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v5
       - name: Mochawesome-Merge Report
         run: npm run report:merge
       - name: Mochawesome-Generate Report
         run: npm run report:mocha
       - name: Reports deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
             BRANCH: gh-pages
             FOLDER: mochawesome-report
