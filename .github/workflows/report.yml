@@ -17,9 +17,7 @@ jobs:
         run: npx mochawesome-merge --reportDir cypress/results > cypress/merged-report/merged-report.json
       - name: Generate mochawesome html report
         run: npx marge cypress/merged-report/merged-report.json -o cypress/mochawesome-html-report
-      - store_artifacts:
-        name: Uploading mochawesome-merged-report.json
+      - name: Uploading mochawesome-merged-report.json
         path: cypress/merged-report
-      - store_artifacts:
-        name: Uploading mochawesome-html-report
+      - name: Uploading mochawesome-html-report
         path: cypress/mochawesome-html-report
